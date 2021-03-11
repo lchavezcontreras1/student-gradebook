@@ -35,7 +35,7 @@ function addRow() {
 function addObject(e) {
     e.preventDefault();
     let name = $("select#fullname").val();
-    let grade = parseFloat($("input#grade").val()) + "%";
+    let grade = parseFloat($("input#grade").val());
     let newObject = {
         name: name,
         grade: grade
