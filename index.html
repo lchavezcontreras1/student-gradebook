@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!------CSS------>
+    <link href="styles.css" rel="stylesheet" type="text/css" media="screen">
+    <!------SE0------>
+    <title>Student GradeBook</title>
+    <meta name="description" content="form where teachers can add students and their grades.">
+    <meta name="keywords" content="student, table, grade-book">
+</head>
+
+<body>
+<h1>Student GradeBook Form</h1>
+
+    <fieldset>
+        <legend>New Grade</legend>
+        <form>
+            <p><label for="fullname">Student Name<br></label>
+                <select name="fullname" id="fullname">
+                    <option value="Bob">Bob</option>
+                    <option value="Sally">Sally</option>
+                    <option value="Sue">Sue</option>
+                    <option value="Jill">Jill</option>
+                    <option value="Jon">Jon</option>
+                    <option value="Ted">Ted</option>
+                    <option value="Mag">Mag</option>
+                    <option value="Jim">Jim</option>
+                </select>
+            </p>
+            <p><label for="grade">New Grade<br></label>
+                <input type="text" name="grade" id="grade">
+            </p>
+            <button id="form-button">Enter</button>
+        </form>
+    </fieldset>
+<div id="grade-table">
+    <table>
+        <thead>
+        <tr>
+            <td>Student Name</td>
+            <td>Grade (%)</td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <br>
+    <button id="by-name">Sort by Name</button>
+    <button id="by-grade">Sort by Grade</button>
+</div> <!--closes content-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>

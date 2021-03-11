@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 100%;
+    font-family: 'Quattrocento', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+    line-height: 1.5;
+    background-color: #fff;
+    text-align: left;
+}
+h1{
+    text-align: center;
+    padding: 1em 0;
+}
+fieldset{
+    padding: 1em 2% 2em 2%;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-left: 5%;
+    width: 30%;
+    float: left;
+}
+form p{
+    margin: 1em auto;
+}
+div{
+    padding: .5em;
+}
+input, select{
+    padding: .45em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    clear: both;
+}
+button{
+    background-color: darkgray;
+    padding: 10px;
+    color: #fff;
+    width: 30%;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #ccc;
+    color: #fff;
+}
+label{
+    padding-bottom: 15px;
+}
+#grade-table{
+    float: left;
+    margin-left: 5%;
+    width: 50%;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+table td{
+    border-bottom: 1px solid #666;
+    padding: 5px 5%;
+    vertical-align: top;
+}
+table tr:nth-child(even){
+    background-color: #ebebeb;
+}
+#grade-table button{
+    margin-top: 1em;
+}
+
