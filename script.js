@@ -1,8 +1,7 @@
-
 $(document).ready(function () {
     addRow();
     $("#form-button").click(addObject);
-    $("button#by-name").click(sortByFirstName,sortByLastName).toggle(display);
+    $("button#by-name").click(sortByName);
     $("button#by-grade").click(sortByGrade);
 
 });
@@ -31,10 +30,18 @@ function byLastName(a , b) {
         return 0;
 }
 //sorts array by grade
-function byGrade(a , b) {
+function byLowestToHighGrade(a , b) {
     if(a.grade < b.grade)
         return -1
     else if (a.grade > b.grade)
+        return 1;
+    else
+        return 0;
+}
+function byHighestToLowestGrade(a , b) {
+    if(a.grade > b.grade)
+        return -1
+    else if (a.grade < b.grade)
         return 1;
     else
         return 0;
@@ -48,15 +55,48 @@ function sortByFirstName(){
 }
 function sortByLastName(){
     $("tbody").empty();
-    student.sort(byFirstName);
+    student.sort(byLastName);
     addRow();
 }
-
+let nameCount = 0;
+function isEven (someNumber){
+    return (someNumber % 2 === 0);
+}
+function sortByName(){
+    nameCount++;
+    if (isEven(nameCount) === false){
+        sortByFirstName();
+        console.log(nameCount);
+        console.log(0);
+    }else if (isEven(nameCount) === true){
+        sortByLastName();
+        console.log(nameCount);
+        console.log(1);
+    }
+}
 //clear and prints sort by grade
-function sortByGrade(){
+function sortByHTLGrade(){
     $("tbody").empty();
-    student.sort(byGrade);
+    student.sort(byHighestToLowestGrade);
     addRow();
+}
+function sortByLTHGrade(){
+    $("tbody").empty();
+    student.sort(byLowestToHighGrade);
+    addRow();
+}
+let gradeCount = 0;
+function sortByGrade(){
+    gradeCount++;
+    if (isEven(gradeCount) === false){
+        sortByLTHGrade();
+        console.log(gradeCount);
+        console.log(0);
+    }else if (isEven(gradeCount) === true){
+        sortByHTLGrade();
+        console.log(gradeCount);
+        console.log(1);
+    }
 }
 
 function addRow() {
