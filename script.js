@@ -91,23 +91,23 @@ function addObject(e) {
         name: iName,
         grade: iGrade
     };
-    for (let anItem of student) {
-        let className = "." + anItem.name;
-        let td = $(className);
-        if (iName === anItem.name) {
-            anItem.grade.push(iGrade);
-            //create a td
-            let gradeCell = $("<td>");
-            td.append(gradeCell);
-            gradeCell.text(`${anItem.grade}%`);
-            break;
-            //append td after td#anItem.name
-        } else {
+    // for (let anItem of student) {
+    //     let className = "." + anItem.name;
+    //     let td = $(className);
+    //     if (iName === anItem.name) {
+    //         anItem.grade.push(iGrade);
+    //         //create a td
+    //         let gradeCell = $("<td>");
+    //         td.append(gradeCell);
+    //         gradeCell.text(`${anItem.grade}%`);
+    //         break;
+    //         //append td after td#anItem.name
+    //     } else {
             student.push(newObject);
             addRow();
-            break;
-        }
-    }
+    //         break;
+    //     }
+    // }
 }
 
 
