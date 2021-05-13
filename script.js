@@ -85,10 +85,12 @@ function addRow() {
 
 function addObject(e) {
     e.preventDefault();
-    let iName = $("select#fullname").val();
+    let iFirstName = $("select#firstname").val();
+    let iLastName= $("select#lastname").val();
     let iGrade = parseFloat($("input#grade").val());
     let newObject = {
-        name: iName,
+        firstName: iFirstName,
+        lastName: iLastName,
         grade: iGrade
     };
     // for (let anItem of student) {
