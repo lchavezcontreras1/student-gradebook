@@ -6,11 +6,11 @@ $(document).ready(function () {
 
 });
 let student = [
-    {firstName: "Sally", lastName: "Johnson", grade: 56},
-    {firstName: "Jill", lastName: "Brown" , grade: 80},
-    {firstName: "Ted", lastName: "Miller", grade: 62},
-    {firstName: "Jim", lastName: "Garcia", grade: 82},
-    {firstName: "Sue", lastName: "Williams", grade: 74},
+    {firstName: "Sally",lastName: "Johnson", grade: [56]},
+    {firstName: "Jill", lastName: "Brown" , grade:[80]},
+    {firstName: "Ted", lastName: "Miller", grade: [62]},
+    {firstName: "Jim", lastName: "Garcia", grade: [82]},
+    {firstName: "Sue", lastName: "Williams", grade: [74]},
 ]
 //sorts array by lastName
 function byFirstName(a , b) {
@@ -134,7 +134,7 @@ function addObject(e) {
         grade: iGrade
     };
     for (let anItem of student) {
-        let className = "." + anItem.firstName;
+        let className = "." + anItem.firstName+ anItem.lastName;
         let td = $(className);
         if (iFirstName === anItem.firstName) {
             if(iLastName === anItem.lastName){
@@ -142,6 +142,7 @@ function addObject(e) {
                 let gradeCell = $("<td>");
                 td.append(gradeCell);
                 gradeCell.text(`${anItem.grade}%`);
+                console.log(student);
                 break;
             }
         } else {
