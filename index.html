@@ -17,8 +17,8 @@
     <fieldset>
         <legend>New Grade</legend>
         <form>
-            <p><label for="fullname">Student Name<br></label>
-                <select name="fullname" id="fullname">
+            <p><label for="firstname">First Name<br></label>
+                <select name="firstname" id="firstname" required>
                     <option value="Bob">Bob</option>
                     <option value="Sally">Sally</option>
                     <option value="Sue">Sue</option>
@@ -29,8 +29,20 @@
                     <option value="Jim">Jim</option>
                 </select>
             </p>
+            <p><label for="lastname">Last Name<br></label>
+                <select name="lastname" id="lastname" required>
+                    <option value="Smith">Smith</option>
+                    <option value="Johnson">Johnson</option>
+                    <option value="Williams">Williams</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Jones">Jones</option>
+                    <option value="Miller">Miller</option>
+                    <option value="Davis">Davis</option>
+                    <option value="Garcia">Garcia</option>
+                </select>
+            </p>
             <p><label for="grade">New Grade<br></label>
-                <input type="text" name="grade" id="grade">
+                <input type="text" name="grade" id="grade" required>
             </p>
             <button id="form-button">Enter</button>
         </form>
@@ -39,7 +51,8 @@
     <table>
         <thead>
         <tr>
-            <td>Student Name</td>
+            <td>First Name</td>
+            <td>Last Name</td>
             <td>Grade (%)</td>
         </tr>
         </thead>

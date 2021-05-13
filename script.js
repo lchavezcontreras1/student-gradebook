@@ -1,41 +1,62 @@
+
 $(document).ready(function () {
-    $("#form-button").click(addObject);
-    $("#by-name").click(sortByName);
-    $("#by-grade").click(sortByGrade);
     addRow();
+    $("#form-button").click(addObject);
+    $("button#by-name").click(sortByFirstName,sortByLastName).toggle(display);
+    $("button#by-grade").click(sortByGrade);
+
 });
 let student = [
-    {name: "Sally", grade: 56},
-    {name: "Jill", grade: 80},
-    {name: "Ted", grade: 62},
-    {name: "Jim", grade: 82},
-    {name: "Sue", grade: 74},
+    {firstName: "Sally", lastName: "Johnson", grade: 56},
+    {firstName: "Jill", lastName: "Brown" , grade: 80},
+    {firstName: "Ted", lastName: "Miller", grade: 62},
+    {firstName: "Jim", lastName: "Garcia", grade: 82},
+    {firstName: "Sue", lastName: "Williams", grade: 74},
 ]
-
-function sortByName() {
-    function byName(a, b) {
-        if (a.name < b.name)
-            return -1;
-        else if (a.name > b.name)
-            return 1;
-        else
-            return 0;
-    }
-
-    student.sort(byName);
+//sorts array by lastName
+function byFirstName(a , b) {
+    if (a.firstName < b.firstName)
+        return -1;
+    else if (a.firstName > b.firstName)
+        return 1;
+    else
+        return 0;
+}
+function byLastName(a , b) {
+    if (a.lastName < b.lastName)
+        return -1;
+    else if (a.lastName > b.lastName)
+        return 1;
+    else
+        return 0;
+}
+//sorts array by grade
+function byGrade(a , b) {
+    if(a.grade < b.grade)
+        return -1
+    else if (a.grade > b.grade)
+        return 1;
+    else
+        return 0;
 }
 
-function sortByGrade() {
-    function byGrade(a, b) {
-        if (a.grade < b.grade)
-            return -1;
-        else if (a.grade > b.grade)
-            return 1;
-        else
-            return 0;
-    }
+// clear and prints sort by name
+function sortByFirstName(){
+    $("tbody").empty();
+    student.sort(byFirstName);
+    addRow();
+}
+function sortByLastName(){
+    $("tbody").empty();
+    student.sort(byFirstName);
+    addRow();
+}
 
+//clear and prints sort by grade
+function sortByGrade(){
+    $("tbody").empty();
     student.sort(byGrade);
+    addRow();
 }
 
 function addRow() {
@@ -48,9 +69,13 @@ function addRow() {
         let tr = $("<tr>");
         theTable.append(tr);
 
-        let nameCell = $("<td>");
-        tr.append(nameCell);
-        nameCell.text(anItem.name);
+        let firstCell = $("<td>")
+        tr.append(firstCell);
+        firstCell.text(anItem.firstName);
+
+        let lastCell = $("<td>");
+        tr.append(lastCell);
+        lastCell.text(anItem.lastName);
 
         let gradeCell = $("<td>");
         tr.append(gradeCell);
@@ -60,14 +85,29 @@ function addRow() {
 
 function addObject(e) {
     e.preventDefault();
-    let name = $("select#fullname").val();
-    let grade = parseFloat($("input#grade").val());
+    let iName = $("select#fullname").val();
+    let iGrade = parseFloat($("input#grade").val());
     let newObject = {
-        name: name,
-        grade: grade
+        name: iName,
+        grade: iGrade
     };
-    student.push(newObject);
-    addRow();
+    for (let anItem of student) {
+        let className = "." + anItem.name;
+        let td = $(className);
+        if (iName === anItem.name) {
+            anItem.grade.push(iGrade);
+            //create a td
+            let gradeCell = $("<td>");
+            td.append(gradeCell);
+            gradeCell.text(`${anItem.grade}%`);
+            break;
+            //append td after td#anItem.name
+        } else {
+            student.push(newObject);
+            addRow();
+            break;
+        }
+    }
 }
 
 
