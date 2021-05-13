@@ -134,20 +134,20 @@ function addObject(e) {
         grade: iGrade
     };
     for (let anItem of student) {
-        let className = "." + anItem.firstName+ anItem.lastName;
-        let td = $(className);
         if (iFirstName === anItem.firstName) {
             if(iLastName === anItem.lastName){
                 anItem.grade.push(iGrade);
-                let gradeCell = $("<td>");
-                td.append(gradeCell);
-                gradeCell.text(`${anItem.grade}%`);
+                addRow();
                 console.log(student);
+                console.log(iGrade);
+            }else{
+                console.log("broke");
                 break;
             }
         } else {
             student.push(newObject);
             addRow();
+            console.log(newObject);
             break;
         }
     }
